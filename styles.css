@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Bonbon&display=swap');
+
+:root {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  --main-color: rgb(231, 249, 253);
+  --sun-color: rgb(231, 249, 253);
+  --y-coordinate: 10%;
+	background-color: var(--main-color);
+  margin: 0;
+  
+
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(var(--y-coordinate, 0));
+    width: 40%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--main-color),  var(--sun-color));
+    box-shadow: 0 0 100px var(--main-color);
+    z-index: -1;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: inherit;
+  padding-bottom: 20px;
+  box-shadow: 0 0px 2px var(--main-color);
+
+  h1 {
+    font-family: "Bonbon", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 0;
+    margin-bottom: 10px;
+    animation: appear 1s ease-in-out;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3vw;
+
+    a {
+      text-decoration: none;
+      padding: 5px;
+      color: inherit;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 30px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: lightblue;
+        transition: width 0.3s ease-in-out;
+        z-index: -1;
+      }
+
+      &:hover::after{
+        width: 100%;
+      }
+    }
+  }
+}
+
+section {
+  margin: 0 auto;
+  max-width: 100ch;
+  text-align: justify;
+  align-content: center;
+  padding: 0 min(5vw, 50px);
+  text-indent: 2ch;
+  line-height: 1.5em;
+}
+
+section:not(:first-of-type) h2 {
+  margin-top: 3rem;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  box-shadow: 0 0px 2px var(--main-color);
+
+  ul {
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    margin: 5px 0;
+
+    a {
+      text-decoration: none;
+      padding: 5px;
+      color: inherit;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 30px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: lightblue;
+        transition: width 0.3s ease-in-out;
+        z-index: -1;
+      }
+
+      &:hover::after{
+        width: 100%;
+      }
+    }
+  }
+}
+
+#science img {
+  float: left;
+  max-width: 40%;
+  shape-outside: circle();
+  margin: 0 30px 20px 0;
+  padding: 0 20px 0 0;
+}
+
+#northern-hemisphere img {
+  float: right;
+  max-width: 40%;
+  shape-outside: circle();
+  margin: 0px 0 30px 30px;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  header {
+    h1 {
+      margin-bottom: 5px;
+      font-size: 1.7rem;
+    }
+  }
+}
